@@ -1,0 +1,226 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Renato Mota Costa --- Engenheiro de Dados (versão PT-PT)
+%% Construído com AltaCV (v1.7.4) de LianTze Lim.
+%%
+%% Compilar com:  pdflatex renato-cv-pt.tex
+%% (ou)           xelatex -shell-escape -output-driver="xdvipdfmx -z 0" renato-cv-pt.tex
+%%
+%% NOTA: o babel é carregado DEPOIS do hyperref (que vem da própria classe).
+%% Normalmente funciona sem problemas, mas se aparecer algum erro relacionado
+%% a bookmarks ou acentos, basta comentar a linha do babel --- perde-se apenas
+%% a hifenização portuguesa.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+
+%% Layout da página
+\geometry{left=1.25cm,right=1.25cm,top=1.4cm,bottom=1.4cm,columnsep=1.1cm}
+
+%% Colunas paralelas que quebram entre páginas
+\usepackage{paracol}
+
+%% Hifenização portuguesa (ver NOTA acima)
+\usepackage[portuguese]{babel}
+
+%% Tipos de letra
+\iftutex
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Paleta de cores --- azul-marinho + azul oceano
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{DeepNavy}{HTML}{0B2545}
+\definecolor{OceanBlue}{HTML}{0E6BA8}
+\definecolor{SteelBlue}{HTML}{3A7CA5}
+\definecolor{SlateDark}{HTML}{2E3440}
+\definecolor{BodyGrey}{HTML}{4C5565}
+
+\colorlet{name}{DeepNavy}
+\colorlet{tagline}{OceanBlue}
+\colorlet{heading}{DeepNavy}
+\colorlet{headingrule}{SteelBlue}
+\colorlet{subheading}{OceanBlue}
+\colorlet{accent}{OceanBlue}
+\colorlet{emphasis}{SlateDark}
+\colorlet{body}{BodyGrey}
+
+%% Tipos de letra dos elementos estruturais
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\taglinefont}{\large\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize\bfseries}
+\renewcommand{\cvsectionfont}{\Large\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\normalsize\bfseries}
+
+%% Marcadores
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+\renewcommand{\cvDateMarker}{\faCalendar[regular]}
+\renewcommand{\cvLocationMarker}{\faMapMarker}
+
+%% Texto alternativo dos ícones de data/local (ajuda em sistemas ATS:
+%% quem copia o PDF em texto simples lê "Data:" e "Local:")
+\renewcommand{\locationname}{Local}
+\renewcommand{\datename}{Data}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Auxiliar: uma subfunção dentro do bloco de um só empregador
+%% #1 = área / divisão     #2 = período
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\cvsubevent}[2]{%
+  \smallskip
+  {\color{emphasis}\normalsize\bfseries #1\hfill
+   \BeginAccSupp{method=pdfstringdef,ActualText={\datename:}}%
+   {\small\color{accent}\cvDateMarker}\EndAccSupp{}%
+   {\small\color{accent}~#2}\par}%
+  \smallskip
+}
+
+%% Listas mais compactas
+\setlist[itemize]{label=\cvItemMarker,leftmargin=1.2em,itemsep=0.25em,topsep=0.3em,parsep=0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Dados do cabeçalho
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\name{Renato Mota Costa}
+\tagline{Engenheiro de Dados \textbullet\ AWS \textbullet\ PySpark \textbullet\ Python \textbullet\ SQL\\[0.35em]
+  {\normalsize\mdseries\color{body}Mudança para Portugal --- autorizado a trabalhar (visto D2) \textbullet\ disponibilidade imediata}}
+
+\personalinfo{%
+  \email{renato.mota.costa@gmail.com}
+  \phone{+55 (11) 96621-3126}
+  \linkedin{renato-mota-31890a227}
+  \github{Rmcstt}
+}
+
+%% Descomentar para incluir fotografia (opção "normalphoto" para foto quadrada)
+% \photoR{2.5cm}{ficheiro-da-foto}
+
+\begin{document}
+\makecvheader
+
+%% Coluna esquerda 62%, coluna direita 38%
+\columnratio{0.62}
+\begin{paracol}{2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% COLUNA ESQUERDA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection{Resumo Profissional}
+
+Engenheiro de Dados com 4 anos de experiência na conceção, modernização e
+automatização de \textit{pipelines} de dados em larga escala, em ambientes
+bancários \textit{cloud-first}. Especializado em AWS (Glue, Lambda, S3, Athena,
+Step Functions), PySpark e boas práticas de ETL/ELT, com forte foco em
+desempenho, otimização de custos e governação de dados. Pós-graduado em
+Engenharia de \textit{Machine Learning}, certificado AWS Cloud Practitioner e
+em preparação para a certificação Databricks.
+
+\cvsection{Experiência Profissional}
+
+\cvevent{Engenheiro de Dados}{Itaú Unibanco}{Set 2022 -- Presente}{São Paulo, Brasil}
+
+\cvsubevent{Divisão de Crédito Imobiliário}{Mar 2026 -- Presente}
+\begin{itemize}
+  \item Aumentou a cobertura de governação de metadados em
+        \textbf{75 pontos percentuais} em mais de \textbf{500 tabelas}, em
+        menos de um mês.
+  \item Lidera a modernização dos \textit{pipelines} de dados em \textit{cloud}
+        que sustentam a análise e a concessão de crédito.
+  \item Construiu \textit{pipelines} ELT com AWS Glue, PySpark, Lambda, Athena
+        e S3; alargou a automatização, a monitorização de custos e as
+        verificações de qualidade de dados.
+\end{itemize}
+
+\divider
+
+\cvsubevent{Divisão de Crédito Automóvel}{Mar 2025 -- Mar 2026}
+\begin{itemize}
+  \item Reduziu o tempo de processamento de ETL através da otimização de
+        PySpark e da afinação do AWS Glue.
+  \item Geriu conjuntos de dados estruturados e semiestruturados em larga
+        escala no S3, para \textit{scoring} de crédito e concessão.
+\end{itemize}
+
+\divider
+
+\cvsubevent{Divisão de Consórcios}{Set 2022 -- Mar 2025}
+\begin{itemize}
+  \item Concebeu e implementou \textit{pipelines} de ETL/ELT escaláveis para
+        operações de grande volume.
+  \item Migrou fluxos de trabalho \textit{legacy} para a AWS, melhorando o
+        desempenho e reduzindo custos.
+  \item Automatizou fluxos de ingestão com Glue, Lambda, Step Functions e
+        Athena.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% COLUNA DIREITA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\switchcolumn
+
+\cvsection{Competências Técnicas}
+
+\cvsubsection{Cloud e Plataforma de Dados}
+\cvtag{AWS Glue}
+\cvtag{Lambda}\\
+\cvtag{S3}
+\cvtag{Athena}\\
+\cvtag{Step Functions}
+\cvtag{IAM}\\
+\cvtag{Databricks \textit{(em curso)}}
+
+\divider\smallskip
+
+\cvsubsection{Linguagens e Processamento}
+\cvtag{Python}
+\cvtag{PySpark}\\
+\cvtag{Spark}
+\cvtag{SQL}
+\cvtag{MySQL}
+
+\divider\smallskip
+
+\cvsubsection{Práticas e Ferramentas}
+\cvtag{ETL / ELT}
+\cvtag{Modelação de Dados}\\
+\cvtag{Governação de Dados}\\
+\cvtag{Automatização}
+\cvtag{Git / GitHub}
+
+\cvsection{Formação}
+
+\cvevent{Pós-Graduação em Engenharia de \textit{Machine Learning}}{FIAP}{Concluída em Jan 2025}{}
+
+\divider
+
+\cvevent{Licenciatura em Análise e Desenvolvimento de Sistemas}{Universidade Anhembi Morumbi}{Currículo concluído}{}
+
+\divider
+
+\cvevent{Licenciatura em Educação Física}{}{Concluída em 2020}{}
+
+\cvsection{Certificações}
+
+%% Se o seu fontawesome5 for antigo e \faAws não existir, troque por \faCloud
+\cvachievement{\faAws}{AWS Certified Cloud Practitioner}{Amazon Web Services}
+
+\divider
+
+\cvachievement{\faCertificate}{Certificação Databricks}{Em curso}
+
+\cvsection{Idiomas}
+
+\cvskill{Português --- Nativo}{5}
+\divider
+\cvskill{Inglês --- B2}{3.5}
+
+\end{paracol}
+\end{document}
