@@ -1,0 +1,212 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Renato Mota Costa --- Data Engineer
+%% Built with AltaCV (v1.7.4) by LianTze Lim.
+%%
+%% Compile with:  pdflatex renato-cv.tex
+%% (or)           xelatex -shell-escape -output-driver="xdvipdfmx -z 0" renato-cv.tex
+%%
+%% No bibliography/biber run needed --- this CV has no publication list.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+
+%% Page layout
+\geometry{left=1.25cm,right=1.25cm,top=1.4cm,bottom=1.4cm,columnsep=1.1cm}
+
+%% Parallel columns that break across pages
+\usepackage{paracol}
+
+%% Fonts
+\iftutex
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Colour palette --- deep navy + ocean blue
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{DeepNavy}{HTML}{0B2545}
+\definecolor{OceanBlue}{HTML}{0E6BA8}
+\definecolor{SteelBlue}{HTML}{3A7CA5}
+\definecolor{SlateDark}{HTML}{2E3440}
+\definecolor{BodyGrey}{HTML}{4C5565}
+
+\colorlet{name}{DeepNavy}
+\colorlet{tagline}{OceanBlue}
+\colorlet{heading}{DeepNavy}
+\colorlet{headingrule}{SteelBlue}
+\colorlet{subheading}{OceanBlue}
+\colorlet{accent}{OceanBlue}
+\colorlet{emphasis}{SlateDark}
+\colorlet{body}{BodyGrey}
+
+%% Fonts for the structural elements
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\taglinefont}{\large\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize\bfseries}
+\renewcommand{\cvsectionfont}{\Large\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\normalsize\bfseries}
+
+%% Markers
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+\renewcommand{\cvDateMarker}{\faCalendar[regular]}
+\renewcommand{\cvLocationMarker}{\faMapMarker}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Helper: a sub-role inside a single employer block
+%% #1 = team / division     #2 = date range
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\cvsubevent}[2]{%
+  \smallskip
+  {\color{emphasis}\normalsize\bfseries #1\hfill
+   \BeginAccSupp{method=pdfstringdef,ActualText={\datename:}}%
+   {\small\color{accent}\cvDateMarker}\EndAccSupp{}%
+   {\small\color{accent}~#2}\par}%
+  \smallskip
+}
+
+%% Tighter itemize for the achievement bullets
+\setlist[itemize]{label=\cvItemMarker,leftmargin=1.2em,itemsep=0.25em,topsep=0.3em,parsep=0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Header data
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\name{Renato Mota Costa}
+\tagline{Data Engineer \textbullet\ AWS \textbullet\ PySpark \textbullet\ Python \textbullet\ SQL\\[0.35em]
+  {\normalsize\mdseries\color{body}Relocating to Portugal --- authorized to work (D2 visa) \textbullet\ available immediately}}
+
+\personalinfo{%
+  \email{renato.mota.costa@gmail.com}
+  \phone{+55 (11) 96621-3126}
+  \linkedin{renato-mota-31890a227}
+  \github{Rmcstt}
+}
+
+%% Uncomment to add a photo (use the "normalphoto" class option for a square one)
+% \photoR{2.5cm}{your-photo-file}
+
+\begin{document}
+\makecvheader
+
+%% Left column 62%, right column 38%
+\columnratio{0.62}
+\begin{paracol}{2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LEFT COLUMN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection{Professional Summary}
+
+Data Engineer with 4 years of experience designing, modernizing and automating
+large-scale data pipelines in cloud-first banking environments. Specialized in
+AWS (Glue, Lambda, S3, Athena, Step Functions), PySpark and ETL/ELT best
+practices, with a strong focus on performance, cost optimization and data
+governance. Holds a postgraduate degree in Machine Learning Engineering, is AWS
+Certified Cloud Practitioner, and is pursuing Databricks certification.
+
+\cvsection{Professional Experience}
+
+\cvevent{Data Engineer}{Itaú Unibanco}{Sep 2022 -- Present}{São Paulo, Brazil}
+
+\cvsubevent{Real Estate Credit Division}{Mar 2026 -- Present}
+\begin{itemize}
+  \item Raised metadata governance coverage by \textbf{75 percentage points}
+        across \textbf{500+ tables} in under one month.
+  \item Leading modernization of cloud data pipelines supporting underwriting
+        and analytics.
+  \item Built ELT pipelines with AWS Glue, PySpark, Lambda, Athena and S3;
+        expanded automation, cost monitoring and data-quality checks.
+\end{itemize}
+
+\divider
+
+\cvsubevent{Vehicle Credit Division}{Mar 2025 -- Mar 2026}
+\begin{itemize}
+  \item Reduced ETL processing time through PySpark optimization and AWS Glue
+        tuning.
+  \item Managed large-scale structured and semi-structured datasets in S3 for
+        credit-scoring and underwriting.
+\end{itemize}
+
+\divider
+
+\cvsubevent{Consortia Division}{Sep 2022 -- Mar 2025}
+\begin{itemize}
+  \item Designed and deployed scalable ETL/ELT pipelines for high-volume
+        operations.
+  \item Migrated legacy workflows to AWS, improving performance and reducing
+        cost.
+  \item Automated ingestion flows using Glue, Lambda, Step Functions and
+        Athena.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% RIGHT COLUMN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\switchcolumn
+
+\cvsection{Technical Skills}
+
+\cvsubsection{Cloud \& Data Platform}
+\cvtag{AWS Glue}
+\cvtag{Lambda}\\
+\cvtag{S3}
+\cvtag{Athena}\\
+\cvtag{Step Functions}
+\cvtag{IAM}\\
+\cvtag{Databricks \textit{(in progress)}}
+
+\divider\smallskip
+
+\cvsubsection{Languages \& Processing}
+\cvtag{Python}
+\cvtag{PySpark}\\
+\cvtag{Spark}
+\cvtag{SQL}
+\cvtag{MySQL}
+
+\divider\smallskip
+
+\cvsubsection{Practices \& Tooling}
+\cvtag{ETL / ELT}
+\cvtag{Data Modeling}\\
+\cvtag{Data Governance}\\
+\cvtag{Automation}
+\cvtag{Git / GitHub}
+
+\cvsection{Education}
+
+\cvevent{Postgraduate, Machine Learning Engineering}{FIAP}{Completed Jan 2025}{}
+
+\divider
+
+\cvevent{B.Sc.\ Systems Analysis and Development}{Anhembi Morumbi University}{Coursework completed}{}
+
+\divider
+
+\cvevent{Bachelor's Degree, Physical Education}{}{Completed 2020}{}
+
+\cvsection{Certifications}
+
+%% If your fontawesome5 is older and \faAws is undefined, swap it for \faCloud
+\cvachievement{\faAws}{AWS Certified Cloud Practitioner}{Amazon Web Services}
+
+\divider
+
+\cvachievement{\faCertificate}{Databricks Certification}{In progress}
+
+\cvsection{Languages}
+
+\cvskill{Portuguese --- Native}{5}
+\divider
+\cvskill{English --- B2}{3.5}
+
+\end{paracol}
+\end{document}
